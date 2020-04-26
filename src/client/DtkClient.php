@@ -2,8 +2,8 @@
 
 namespace Dtk\Client;
 
-use Dtk\Requests\BindSteategyClass;
-use Dtk\Http\Http;
+use Requests\BindSteategyClass;
+use Http\Http;
 
 class DtkClient
 {

@@ -3,7 +3,7 @@ declare (strict_types=1);
 
 namespace Dtk\Requests;
 
-use Dtk\Util\ArrayObject;
+use Util\ArrayObject;
 
 abstract class DtkRequest
 {
