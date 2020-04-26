@@ -1,8 +1,8 @@
 <?php
 
-namespace Requests\Dtk;
+namespace Dtk\Requests\Dtk;
 
-use Requests\DtkRequest;
+use Dtk\Requests\DtkRequest;
 /**
  * 活动商品
  */

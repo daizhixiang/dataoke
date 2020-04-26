@@ -1,6 +1,6 @@
 <?php
 
-namespace Requests;
+namespace Dtk\Requests;
 
 trait BindSteategyClass
 {
@@ -14,7 +14,7 @@ trait BindSteategyClass
     }
     static function BindClass($name){
         try{
-            $namespace = "Requests\\Dtk\\".$name;
+            $namespace = "Dtk\\Requests\\Dtk\\".$name;
             $class = new $namespace;
         }catch (\Error $e){
             throw new \Error("当前策略不存在");

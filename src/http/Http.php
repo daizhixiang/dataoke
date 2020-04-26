@@ -1,7 +1,5 @@
 <?php
-namespace Http;
-
-use Util\Str;
+namespace Dtk\Http;
 
 class Http
 {

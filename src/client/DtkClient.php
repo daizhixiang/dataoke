@@ -1,6 +1,6 @@
 <?php
 
-namespace Client;
+namespace Dtk\Client;
 
 use Requests\BindSteategyClass;
 use Http\Http;

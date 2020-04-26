@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Requests\Dtk;
 
 use Requests\DtkRequest;

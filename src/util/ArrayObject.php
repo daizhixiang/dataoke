@@ -1,5 +1,5 @@
 <?php
-namespace Util;
+namespace Dtk\Util;
 
 trait ArrayObject
 {

@@ -1,9 +1,8 @@
 <?php
 
+namespace Dtk\Requests\Dtk;
 
-namespace Requests\Dtk;
-
-use Requests\DtkRequest;
+use Dtk\Requests\DtkRequest;
 
 /**
  * 我的收藏

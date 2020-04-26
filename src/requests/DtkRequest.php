@@ -1,7 +1,7 @@
 <?php
 declare (strict_types=1);
 
-namespace Requests;
+namespace Dtk\Requests;
 
 use Util\ArrayObject;
 

@@ -1,10 +1,8 @@
 <?php
 
+namespace Dtk\Requests\Dtk;
 
-namespace Requests\Dtk;
-
-
-use Requests\DtkRequest;
+use Dtk\Requests\DtkRequest;
 
 /**
  * 品牌库

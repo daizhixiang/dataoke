@@ -1,10 +1,8 @@
 <?php
 
+namespace Dtk\Requests\Dtk;
 
-namespace Requests\Dtk;
-
-
-use Requests\DtkRequest;
+use Dtk\Requests\DtkRequest;
 /**
  * 大淘客搜索
  */

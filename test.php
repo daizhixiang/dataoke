@@ -1,9 +1,9 @@
 <?php
 
 require 'autoload.php';
-$client = new \Client\DtkClient(
-    'xxxxxxxxxxxx',
-    'xxxxxxxxxxxxxxxxxxxxxxxxxx'
+$client = new \Dtk\Client\DtkClient(
+    '5ea15338e40cf',
+    "59a50e9eda3e12213fec64abf6785379"
 );
 
 $param = array_merge((array)$_GET,(array)$_POST);

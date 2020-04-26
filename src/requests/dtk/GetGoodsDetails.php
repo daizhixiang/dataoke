@@ -1,9 +1,9 @@
 <?php
 
 
-namespace Requests\Dtk;
+namespace Dtk\Requests\Dtk;
 
-use Requests\DtkRequest;
+use Dtk\Requests\DtkRequest;
 
 /**
  * 单品详情
