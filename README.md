@@ -1,9 +1,14 @@
 ～～～公司要做一个淘宝客的项目，需要接入大淘客，官方SDK用的不是很顺手，自己封装了一个～～～
 ## 下载方式
 composer
-`composer require lyb/dataoke`
+```composer
+composer require lyb/dataoke
+```
 git
-`git clone git@github.com:Lyb-coder/dataoke.git`
+```git
+git clone git@github.com:Lyb-coder/dataoke.git
+```
+
 ## 获取接口信息
 ```php
 include '../../../autoload.php';
