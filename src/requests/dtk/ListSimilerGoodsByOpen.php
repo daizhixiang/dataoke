@@ -1,8 +1,8 @@
 <?php
 
-namespace Dtk\Requests\Dtk;
+namespace DaTaoKe\Requests\Dtk;
 
-use Dtk\Requests\DtkRequest;
+use DaTaoKe\Requests\DtkRequest;
 
 /**
  * 猜你喜欢
@@ -10,9 +10,9 @@ use Dtk\Requests\DtkRequest;
 class ListSimilerGoodsByOpen extends DtkRequest
 {
     public $version = 'v1.2.2';
-    public $apiLink = 'https://openapi.dataoke.com/api/goods/list-similer-goods-by-open';
+    public $api = '/goods/list-similer-goods-by-open';
     public $extraParasField = [
-        "id",//	大淘客的商品id	是	Number
-        "size",//	每页条数	否	Number	默认10 ， 最大值100
+        "大淘客的商品id" => "id",//		是	Number
+        "每页条数" => "size",//		否	Number	默认10 ， 最大值100
     ];
 }

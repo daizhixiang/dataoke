@@ -1,33 +1,58 @@
 <?php
-namespace Dtk\Http;
+
+namespace DaTaoKe\Http;
 
 class Http
 {
+    public $url = '';
+    public $query = [];
+    public $options = [];
+    public $data = [];
+    public $method = '';
 
-    /**
-     * 以get模拟网络请求
-     * @param string $url HTTP请求URL地址
-     * @param array $query GET请求参数
-     * @param array $options CURL参数
-     * @return bool|string
-     */
-    public static function get($url, $query = [], $options = [])
+    public static function init()
     {
-        $options['query'] = $query;
-        return self::request('get', $url, $options);
+        return new self;
     }
 
-    /**
-     * 以get模拟网络请求
-     * @param string $url HTTP请求URL地址
-     * @param array $data POST请求数据
-     * @param array $options CURL参数
-     * @return bool|string
-     */
-    public static function post($url, $data = [], $options = [])
+    public function setUrl(string $url)
     {
-        $options['data'] = $data;
-        return self::request('post', $url, $options);
+        $this->url = $url;
+        return $this;
+    }
+
+    public function setOptions(array $options)
+    {
+        $this->options = $options;
+        return $this;
+    }
+
+    public function setQuery(array $query)
+    {
+        $this->query = $query;
+        return $this;
+    }
+
+    public function setData(array $data)
+    {
+        $this->data = $data;
+        return $this;
+    }
+
+    public function setMethod(string $method)
+    {
+        $this->method = $method;
+        return $this;
+    }
+
+    public function execute()
+    {
+        if ('get' == strtolower($this->method)) {
+            $this->options['query'] = $this->query;
+        }elseif ('post' == strtolower($this->method)){
+            $this->options['data'] = $this->data;
+        }
+        return self::request($this->method, $this->url, $this->options);
     }
 
     /**

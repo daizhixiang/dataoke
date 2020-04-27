@@ -1,8 +1,8 @@
 <?php
 
-namespace Dtk\Requests\Dtk;
+namespace DaTaoKe\Requests\Dtk;
 
-use Dtk\Requests\DtkRequest;
+use DaTaoKe\Requests\DtkRequest;
 
 /**
  * 超级分类
@@ -10,6 +10,6 @@ use Dtk\Requests\DtkRequest;
 class GetSuperCategory extends DtkRequest
 {
     public $version = 'v1.1.0';
-    public $apiLink = 'https://openapi.dataoke.com/api/category/get-super-category';
+    public $api = '/category/get-super-category';
     public $extraParasField = [];
 }

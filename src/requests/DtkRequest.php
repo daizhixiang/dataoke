@@ -1,13 +1,14 @@
 <?php
 declare (strict_types=1);
 
-namespace Dtk\Requests;
+namespace DaTaoKe\Requests;
 
-use Dtk\Util\ArrayObject;
+use DaTaoKe\Util\ArrayObject;
 
 abstract class DtkRequest
 {
     use ArrayObject;
+
     /**
      * 接口版本号
      */
@@ -17,9 +18,13 @@ abstract class DtkRequest
      */
     public $requestMethod = 'GET';
     /**
+     * 接口地址
+     */
+    public $gateway = 'https://openapi.dataoke.com/api';
+    /**
      * 接口链接
      */
-    public $apiLink = '';
+    public $api = '';
     /**
      * 公共参数
      */
@@ -40,6 +45,7 @@ abstract class DtkRequest
      * 需要的字段
      */
     public $NeedField = [];
+
     /**
      * 设置公共参数
      * @param array $apiParas
@@ -56,7 +62,7 @@ abstract class DtkRequest
      */
     public function setExtraParas(array $extraParas)
     {
-        $this->extraParas = array_intersect(array_flip($this->extraParasField), $extraParas);
+        $this->extraParas = array_intersect(array_flip(array_values($this->extraParasField)), $extraParas);
         return $this;
     }
 
@@ -74,12 +80,12 @@ abstract class DtkRequest
      */
     public function DataProcessing($data)
     {
-        $data = (object)self::ArrayToObject((array)json_decode($data, true));
+        $data = (object)json_decode($data, true);
         //错误码检查
         if (!$this->ErrorCode((int)$data->code)) {
             throw new \InvalidArgumentException((string)$data->msg);
-        };
-        $this->apiData = ArrayObject::ObjectToArray($data->data);
+        }
+        $this->apiData = $data->data;
     }
 
     /**

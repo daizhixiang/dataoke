@@ -1,8 +1,8 @@
 <?php
 
-namespace Dtk\Requests\Dtk;
+namespace DaTaoKe\Requests\Dtk;
 
-use Dtk\Requests\DtkRequest;
+use DaTaoKe\Requests\DtkRequest;
 
 /**
  * 品牌库
@@ -10,9 +10,9 @@ use Dtk\Requests\DtkRequest;
 class GetBrandList extends DtkRequest
 {
     public $version = 'v1.1.1';
-    public $apiLink = 'https://openapi.dataoke.com/api/tb-service/get-brand-list';
+    public $api = '/tb-service/get-brand-list';
     public $extraParasField = [
-        "pageId",//	页码	是	String
-        "pageSize",//	每页条数	否	Number	默认为20，最大值100
+        "页码"=>"pageId",//		是	String
+        "每页条数"=>"pageSize",//		否	Number	默认为20，最大值100
     ];
 }
