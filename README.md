@@ -23,4 +23,4 @@ function getApiInfo(){
 getApiInfo();
 
 ```
-![RUNOOB 图标](http://static.runoob.com/images/runoob-logo.png)
+![ 获取接口信息（终端输出）](./image/apiInfo.jpeg)
