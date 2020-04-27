@@ -44,6 +44,6 @@ $params = array_merge((array)$_GET,(array)$_POST);
 $obj->setSteategyObj("GetGoodsList",$params);
 print_r($obj->performRequests());
 
-##数据太多就不截图了，自己看吧
+##数据太多就不截图了，自己看吧，其他接口都是一样的方式
 ```
 
