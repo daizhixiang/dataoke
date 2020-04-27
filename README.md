@@ -23,4 +23,5 @@ function getApiInfo(){
 getApiInfo();
 
 ```
-![ 获取接口信息（终端输出）](./image/apiInfo.jpeg)
+![ 获取接口信息（终端输出）](https://i.loli.net/2020/04/27/y6N1uGT7zMrHSRn.jpg)
+
