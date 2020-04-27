@@ -20,12 +20,12 @@ getApiInfo();
 /**
  * 根据上面查到的信息可以直接拿数据
  */
-//$obj = new \DaTaoKe\Client\DtkClient(
-//    "XXXXXXXXXX",
-//    "XXXXXXXXXXXXXXXXXXXX",
-//    'array'
-//);
-//$params = array_merge((array)$_GET,(array)$_POST);
-//$obj->setSteategyObj("GetGoodsList",$params);
-//print_r($obj->performRequests());
+$obj = new \DaTaoKe\Client\DtkClient(
+    "XXXXXXXXXX",
+    "XXXXXXXXXXXXXXXXXXXX",
+    'array'
+);
+$params = array_merge((array)$_GET,(array)$_POST);
+$obj->setSteategyObj("GetGoodsList",$params);
+print_r($obj->performRequests());
 
