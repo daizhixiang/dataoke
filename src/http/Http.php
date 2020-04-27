@@ -49,7 +49,7 @@ class Http
     {
         if ('get' == strtolower($this->method)) {
             $this->options['query'] = $this->query;
-        }elseif ('post' == strtolower($this->method)){
+        } elseif ('post' == strtolower($this->method)) {
             $this->options['data'] = $this->data;
         }
         return self::request($this->method, $this->url, $this->options);

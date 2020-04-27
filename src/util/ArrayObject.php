@@ -1,4 +1,5 @@
 <?php
+
 namespace DaTaoKe\Util;
 
 trait ArrayObject
@@ -9,7 +10,8 @@ trait ArrayObject
      * @param array $arr 数组
      * @return object
      */
-    public static function ArrayToObject($arr) {
+    public static function ArrayToObject($arr)
+    {
         if (gettype($arr) != 'array') {
             return;
         }
@@ -27,7 +29,8 @@ trait ArrayObject
      * @param object $obj 对象
      * @return array
      */
-    public static function ObjectToArray($obj) {
+    public static function ObjectToArray($obj)
+    {
         $obj = (array)$obj;
         foreach ($obj as $k => $v) {
             if (gettype($v) == 'resource') {

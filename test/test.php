@@ -26,6 +26,7 @@ $obj = new \DaTaoKe\Client\DtkClient(
     'array'
 );
 $params = array_merge((array)$_GET,(array)$_POST);
-$obj->setSteategyObj("GetGoodsList",$params);
+$obj->setRequestParas($params)
+    ->setSteategyObj("GetGoodsList",$params);
 print_r($obj->performRequests());
 

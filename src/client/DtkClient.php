@@ -14,18 +14,19 @@ class DtkClient
     /**
      * 大淘客平台的AppKey和AppSecret
      */
-    public $appKey = '';
-    public $appSecret = '';
+    private $appKey = '';
+    private $appSecret = '';
     //策略对象
-    public $strategyObj;
+    private $strategyObj;
     //得到的数据类型 array,object,json
-    public $dataType;
+    private $dataType;
+
     /**
      * @param null $appKey
      * @param null $appSecret
      * @param string $dataType
      */
-    public function __construct($appKey = null, $appSecret = null,$dataType = 'array')
+    public function __construct($appKey = null, $appSecret = null, $dataType = 'array')
     {
         if ($appKey) $this->appKey = $appKey;
         if ($appSecret) $this->appSecret = $appSecret;
@@ -34,7 +35,7 @@ class DtkClient
         $this->onInitialize();
     }
 
-    public function onInitialize()
+    private function onInitialize()
     {
         if (!$this->appKey || !$this->appSecret) {
             throw new \InvalidArgumentException('AppKey和AppSecret不能为空');
@@ -56,7 +57,7 @@ class DtkClient
      * @param $data
      * @return string
      */
-    public function setSign($data): string
+    private function setSign($data): string
     {
         ksort($data);
         $str = '';
@@ -85,7 +86,7 @@ class DtkClient
             ->execute();
         $this->strategyObj->DataProcessing($data);
 
-        switch ($this->dataType){
+        switch ($this->dataType) {
             case 'object':
                 return ArrayObject::ArrayToObject($this->strategyObj->apiData);
             case 'json':

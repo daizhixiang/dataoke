@@ -20,7 +20,7 @@ abstract class DtkRequest
     /**
      * 接口地址
      */
-    public $gateway = 'https://openapi.dataoke.com/api';
+    protected $gateway = 'https://openapi.dataoke.com/api';
     /**
      * 接口链接
      */
@@ -41,10 +41,6 @@ abstract class DtkRequest
      * 额外参数字段
      */
     public $extraParasField = [];
-    /**
-     * 需要的字段
-     */
-    public $NeedField = [];
 
     /**
      * 设置公共参数
@@ -91,7 +87,7 @@ abstract class DtkRequest
     /**
      * 错误码检查
      */
-    public function ErrorCode(int $code)
+    protected function ErrorCode(int $code)
     {
         if ($code == 0) {
             return true;

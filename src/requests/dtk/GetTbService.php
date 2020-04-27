@@ -3,6 +3,7 @@
 namespace DaTaoKe\Requests\Dtk;
 
 use DaTaoKe\Requests\DtkRequest;
+
 /**
  * 联盟搜索
  */
