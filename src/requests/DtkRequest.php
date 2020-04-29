@@ -23,7 +23,7 @@ abstract class DtkRequest
      * 接口地址
      * @var string
      */
-    protected $gateway = 'https://openapi.dataoke.com/api';
+    public $gateway = 'https://openapi.dataoke.com/api';
     /**
      * 接口链接
      * @var string
