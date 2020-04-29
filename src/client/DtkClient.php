@@ -4,6 +4,7 @@ namespace DaTaoKe\Client;
 
 use DaTaoKe\Requests\BindSteategyClass;
 use DaTaoKe\Http\Http;
+use DaTaoKe\Requests\DtkRequest;
 use DaTaoKe\Util\ArrayObject;
 
 /**
@@ -16,7 +17,10 @@ class DtkClient
      */
     private $appKey = '';
     private $appSecret = '';
-    //策略对象
+    /**
+     * 策略对象
+     * @var DtkRequest
+     */
     private $strategyObj;
     //得到的数据类型 array,object,json
     private $dataType;
