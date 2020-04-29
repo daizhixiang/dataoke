@@ -98,6 +98,7 @@ class DtkClient
             case 'array':
             default:
         }
+
         return $this->strategyObj->apiData;
     }
 }

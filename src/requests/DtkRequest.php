@@ -69,8 +69,8 @@ abstract class DtkRequest
     public function setExtraParas(array $extraParas)
     {
         $allExtraParas = array_flip(array_values($this->extraParasField));
-        foreach ($extraParas as $keys => $vals){
-            if (in_array($keys,$allExtraParas)){
+        foreach ($extraParas as $keys => $vals) {
+            if (in_array($keys, $allExtraParas)) {
                 $this->extraParas[$keys] = $vals;
             }
         }
