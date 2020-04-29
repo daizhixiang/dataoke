@@ -11,40 +11,50 @@ abstract class DtkRequest
 
     /**
      * 接口版本号
+     * @var string
      */
     public $version = '';
     /**
      * 接口版本号
+     * @var string
      */
     public $requestMethod = 'GET';
     /**
      * 接口地址
+     * @var string
      */
     protected $gateway = 'https://openapi.dataoke.com/api';
     /**
      * 接口链接
+     * @var string
      */
     public $api = '';
     /**
      * 公共参数
+     * @var array|object
      */
     public $apiParas = [];
     /**
      * 额外参数
+     * @var array|object
      */
     public $extraParas = [];
     /**
      * 接口返回数据
+     * @var array|object|string
      */
     public $apiData = [];
     /**
      * 额外参数字段
+     * @var array|object
      */
     public $extraParasField = [];
 
     /**
      * 设置公共参数
      * @param array $apiParas
+     *
+     * @return self
      */
     public function setApiParas(array $apiParas): self
     {
@@ -58,12 +68,18 @@ abstract class DtkRequest
      */
     public function setExtraParas(array $extraParas)
     {
-        $this->extraParas = array_intersect(array_flip(array_values($this->extraParasField)), $extraParas);
+        $allExtraParas = array_flip(array_values($this->extraParasField));
+        foreach ($extraParas as $keys => $vals){
+            if (in_array($keys,$allExtraParas)){
+                $this->extraParas[$keys] = $vals;
+            }
+        }
         return $this;
     }
 
     /**
      * 获取接口请求参数
+     *
      * @return array
      */
     public function getRequestParas(): array
