@@ -29,26 +29,78 @@ abstract class DtkRequest
      * @var string
      */
     public $api = '';
-    /**
-     * 公共参数
-     * @var array|object
-     */
-    public $apiParas = [];
+
     /**
      * 额外参数
      * @var array|object
      */
     public $extraParas = [];
+
     /**
      * 接口返回数据
      * @var array|object|string
      */
     public $apiData = [];
     /**
-     * 额外参数字段
+     * 公共参数
      * @var array|object
      */
-    public $extraParasField = [];
+    public $apiParas = [];
+    /**
+     * 公共参数文档
+     * @var string
+     */
+    public $apiParasDocs = <<<APIPARAS
+|名称|类型|必须|说明|
+| ------------ | ------------ | ------------ | ------------ |
+|appKey|String|**是**|应用的唯一验证|
+|version|String|**是**|API接口版本号|
+APIPARAS;
+    /**
+     * 额外参数文档
+     * @var string
+     */
+    public $extraParasDocs = <<<EXTRAPARASDOCS
+
+EXTRAPARASDOCS;
+
+    /**
+     * 返回数据
+     * @var string
+     */
+    public $resultDateDocs = <<<RESULTDATE
+
+RESULTDATE;
+    /**
+     * 返回示例
+     * @var string
+     */
+    public $resultInfoDocs = <<<RESULTINFO
+
+RESULTINFO;
+
+    /**
+     * 常见错误码
+     * @var string
+     */
+    public $commonErrorsCodeDocs = <<<COMMONERRORSCODE
+{
+    msg: "服务器错误",
+    code: -1,
+    time: 1554365022200
+}
+COMMONERRORSCODE;
+
+    /**
+     * 错误码列表
+     * @var string
+     */
+    public $ErrorsCodeListDocs = <<<ERRORSCODELIST
+|错误码编码|错误码信息|解决问题办法|
+| ------------ | ------------ | ------------ |
+|-1|服务器错误|稍后尝试访问|
+|1|参数错误|请根据msg提示信息进行修改|
+ERRORSCODELIST;
 
     /**
      * 设置公共参数
@@ -68,11 +120,8 @@ abstract class DtkRequest
      */
     public function setExtraParas(array $extraParas)
     {
-        $allExtraParas = array_flip(array_values($this->extraParasField));
         foreach ($extraParas as $keys => $vals) {
-            if (in_array($keys, $allExtraParas)) {
-                $this->extraParas[$keys] = $vals;
-            }
+            $this->extraParas[$keys] = $vals;
         }
         return $this;
     }

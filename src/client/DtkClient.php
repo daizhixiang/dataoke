@@ -46,7 +46,7 @@ class DtkClient
         }
     }
 
-    public function setSteategyObj(string $strategyObj, array $ExtraParas): self
+    public function setSteategyObj(string $strategyObj, array $ExtraParas = []): self
     {
         $this->strategyObj = BindSteategyClass::$strategyObj();
         $ApiParas['appKey'] = $this->appKey;
@@ -101,4 +101,5 @@ class DtkClient
 
         return $this->strategyObj->apiData;
     }
+    
 }

@@ -4,9 +4,12 @@ namespace DaTaoKe\Requests;
 
 use DaTaoKe\Util\DocParserFactory;
 use DaTaoKe\Util\Colors;
+use DaTaoKe\Util\JsonFormat;
 
 trait BindSteategyClass
 {
+    use DocParserFactory;
+    use JsonFormat;
     function __call($name, $arguments)
     {
         return self::BindClass($name);
@@ -16,7 +19,9 @@ trait BindSteategyClass
     {
         return self::BindClass($name);
     }
-
+    /**
+     * @return DtkRequest
+     */
     static function BindClass($name)
     {
         try {
@@ -28,7 +33,7 @@ trait BindSteategyClass
         return $class;
     }
 
-    static function GetAllSteategy($apiname = null, $IsExtraParasField = false)
+    static function GetAllSteategy($apiname = null)
     {
         $str = opendir(__DIR__ . '/dtk');//指定获取此目录下的文件及文件夹列表
 
@@ -42,13 +47,13 @@ trait BindSteategyClass
         }
         closedir($str);
 
-        $func = function ($classname) use ($apiname, $IsExtraParasField) {
+        $func = function ($classname) use ($apiname) {
             $steategy = self::BindClass($classname);
             $reflection = new \ReflectionClass ($steategy);
             //通过反射获取类的注释
             $class_doc = $reflection->getDocComment();
             //解析类的注释头
-            $parase_result = DocParserFactory::getInstance()->parse($class_doc);
+            $parase_result = self::getInstance()->parse($class_doc);
 
             if ($apiname && $apiname != '' && $apiname != []) {
                 if (is_string($apiname) && $parase_result['long_description'] != $apiname) {
@@ -64,14 +69,46 @@ trait BindSteategyClass
             echo $colors->getColoredString("    接口名称:   ", "blue") . "{$parase_result['long_description']}\n";
             echo $colors->getColoredString("    接口版本:   ", "blue") . "$steategy->version\n";
             echo $colors->getColoredString("    接口地址:   ", "blue") . "$steategy->api\n";
-
-            if ($IsExtraParasField) {
-                echo $colors->getColoredString("    接口需要的参数信息:   ", "blue") . "[\n";
-                foreach ($steategy->extraParasField as $k => $v) {
-                    echo $colors->getColoredString("        " . $k, "green") . ": {$v}\n";
-                }
-                echo "    ]\n";
+            
+            //md文档生成
+            $filename = __DIR__."/../../docs/{$parase_result['long_description']}.md";
+            if (!file_exists($filename)){
+                shell_exec("touch $filename");
+            }else{
+                unlink($filename);
             }
+            $data = <<<DTK
+### 接口信息
+- 策略名称：{$classname}
+- 接口名称：{$parase_result['long_description']}
+- 接口版本：{$steategy->version}
+- 接口地址：{$steategy->api}
+
+### 公共参数
+{$steategy->apiParasDocs}
+
+### 请求参数
+{$steategy->extraParasDocs}
+
+### 返回数据
+{$steategy->resultDateDocs}
+
+### 返回示例
+```
+{$steategy->resultInfoDocs}
+```
+
+### 常见错误码
+```
+{$steategy->commonErrorsCodeDocs}
+```
+
+### 错误码列表
+{$steategy->ErrorsCodeListDocs}
+DTK;
+            ;
+            file_put_contents($filename, $data, FILE_APPEND);
+            
             echo "]\n";
         };
         foreach ($file_array as $key => $val) {
