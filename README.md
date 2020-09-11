@@ -18,19 +18,15 @@ use \DaTaoKe\Requests\BindSteategyClass;
  * 获取接口信息（终端输出）
  */
 function getApiInfo(){
-    //获取所有接口完整信息
-    //BindSteategyClass::GetAllSteategy(null,true);
     //获取所有接口信息
     //BindSteategyClass::GetAllSteategy();
-    //获取指定接口完整信息
-    BindSteategyClass::GetAllSteategy("活动商品",true);
     //获取指定接口信息
     //BindSteategyClass::GetAllSteategy("活动商品");
 }
 getApiInfo();
 
 ```
-![ 获取接口信息（终端输出）](https://i.loli.net/2020/04/27/y6N1uGT7zMrHSRn.jpg)
+![ 获取接口信息并生成文档（终端输出）](https://i.loli.net/2020/09/11/joLfJCqaQGAURnT.jpg)
 ## 获取接口数据信息
 ```php
 include '../../../autoload.php';
