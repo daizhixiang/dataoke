@@ -2,6 +2,7 @@
 
 namespace DaTaoKe\Util;
 
+
 trait ArrayObject
 {
     /**

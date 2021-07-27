@@ -2,6 +2,7 @@
 
 namespace DaTaoKe\Client;
 
+
 use DaTaoKe\Requests\BindSteategyClass;
 use DaTaoKe\Http\Http;
 use DaTaoKe\Requests\DtkRequest;

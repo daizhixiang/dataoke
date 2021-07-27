@@ -2,6 +2,7 @@
 
 namespace DaTaoKe\Http;
 
+
 class Http
 {
     public $url = '';
